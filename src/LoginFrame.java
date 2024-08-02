@@ -39,13 +39,10 @@ public class LoginFrame extends JFrame {
             Usuario usuario = usuarioDAO.buscarPorNombreUsuario(nombreUsuario);
 
             if (usuario != null && usuario.getContrasena().equals(contrasena)) {
-                // Cerrar la ventana actual de inicio de sesión
                 dispose();
 
-                // Obtener la lista de usuarios desde el DAO
                 List<Usuario> usuarios = usuarioDAO.obtenerTodos();
 
-                // Abrir la ventana de la lista de usuarios
                 ListaUsuariosFrame listaUsuariosFrame = new ListaUsuariosFrame(usuarios, usuarioDAO);
                 listaUsuariosFrame.setVisible(true);
             } else {
